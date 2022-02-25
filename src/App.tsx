@@ -3,7 +3,6 @@ import './App.css';
 import { Newspapers } from './components/newspapers/Newspapers';
 import { SearchField } from './components/search-field/SearchField';
 import { ToggleSwitch } from './components/toggle-switch/ToggleSwitch';
-import { isURL } from './constants/regex.const';
 import { Articles } from './interfaces/articles.interface';
 import { request } from './services/request';
 
@@ -11,9 +10,14 @@ function App() {
   const [searchValue, setSearchValue]: [string, Function]  = useState('');
   const [newspapers, setNewspapers]: [string[], Function] = useState([]);
   const [selectedNewspapers, setSelectedNewspapers]: [string[], Function]  = useState(["b"]);
+  const [moreRecent, setMoreRecent]: [boolean, Function]  = useState(false);
 
   const changeValue = (event: string) => {
     setSearchValue(event);
+  }
+
+  const changeMoreRecentValue = () => {
+    setMoreRecent(!moreRecent)
   }
 
   const changeSelectednewspapers = (value: string) => {
@@ -26,9 +30,9 @@ function App() {
     request(process.env.REACT_APP_HEADLINES_ENDPOINT!)
     .then((articles:Articles) => setNewspapers(
       articles.articles
-      .map(article => article.author && article.author)
+      .map(article => article.source.name)
       .sort()
-      .filter((value, pos, ary) => !!value && !isURL.test(value) && (!pos || value !== ary[pos - 1]))
+      .filter((value, pos, ary) => !!value && (!pos || value !== ary[pos - 1]))
       )
     )
   },[])
@@ -40,7 +44,7 @@ function App() {
           <SearchField searchValue={searchValue} setSearchValue={changeValue}/>
         </div>
         <div className="col-4">
-          <ToggleSwitch />
+          <ToggleSwitch changeMoreRecentValue={changeMoreRecentValue}/>
         </div>
         <div className="col-8">
           <Newspapers newspapers={newspapers} selectedNewspapers={selectedNewspapers} setSelectedNewspapers={changeSelectednewspapers}/>

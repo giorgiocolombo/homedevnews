@@ -1,5 +1,11 @@
 .newspaper{
     max-width: 400px;
+    background-color: #17181a;
+    padding: 2rem 1rem 3rem;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .newspaper *{
@@ -8,16 +14,27 @@
 
 .newspaper small{
     display: block;
+    margin-bottom: 1rem;
+    width: 100%;
 }
 
 .newspaper__btn {
-    min-width: 100px;
-    margin-right: 1rem;
     text-align: left;
-    max-width: 300px;
+    max-width: 200px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to left, rgba(92, 55, 242, 1) 0%, rgba(234, 52, 52, 1) 100% );
+    background: linear-gradient(to left, rgba(92,55,242,1) 0%, rgba(234,52,52,1) 100%);
+    color: #ddd;
+    text-shadow: 1px 1px 20px #000;
+}
+
+.newspaper__btn:not(.newspaper__btn--selected) {
+    background-clip: linear-gradient(to left, rgba(92,55,242,1) 0%, rgba(234,52,52,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .newspaper__btn:last-of-type {

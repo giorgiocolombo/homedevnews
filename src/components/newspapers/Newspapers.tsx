@@ -15,9 +15,9 @@ export function Newspapers(props: propsType) {
 
     return (
         <div className="newspaper">
-            <small><i>editori ricerca corrente:</i></small>
+            <small><i>filtra editori della ricerca corrente:</i></small>
            {newspapers.map((newspaper: string, i: number) => (
-                <button key={i} type="button" className={`newspaper__btn btn mt-2 ${isSelected(newspaper) ? 'btn-primary' : 'btn-outline-primary'}`} onClick={() => selectNewspaper(newspaper)}>{newspaper}</button>
+                <button key={i} type="button" className={`newspaper__btn btn mt-2 ${isSelected(newspaper) ? 'newspaper__btn--selected' : ''}`} onClick={() => selectNewspaper(newspaper)}>{newspaper}</button>
            ))}
         </div>
     )

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
+import './SearchField.css'
 
 interface propsType {
     searchValue: string;
@@ -17,9 +18,9 @@ export function SearchField(props: propsType) {
     return (
         <React.Fragment>
             <div className="input-group mb-3 mt-2">
-                <input type="text" className="form-control" placeholder="Cerca un argomento" aria-label="Cerca un argomento" onChange={setInputValue}  />
+                <input type="text" className="form-control search" placeholder="Ricerca un argomento" aria-label="Cerca un argomento" onChange={setInputValue}  />
                 <div className="input-group-append">
-                    <button className="btn btn-outline-primary" type="button" onClick={() => {setSearchValue(inputValue)}}>Cerca</button>
+                    <button className="btn btn-outline-primary search-button" type="button" onClick={() => {setSearchValue(inputValue)}}>🔎</button>
                 </div>
             </div>
 
