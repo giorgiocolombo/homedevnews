@@ -31,6 +31,10 @@
     text-shadow: 1px 1px 20px #000;
 }
 
+.newspaper__btn:hover {
+    color: #ddd;
+}
+
 .newspaper__btn:not(.newspaper__btn--selected) {
     background-clip: linear-gradient(to left, rgba(92,55,242,1) 0%, rgba(234,52,52,1) 100%);
     -webkit-background-clip: text;
