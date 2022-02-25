@@ -15,10 +15,11 @@ function App() {
   const [selectedNewspapers, setSelectedNewspapers]: [string[], Function]  = useState([]);
   const [moreRecent, setMoreRecent]: [boolean, Function]  = useState(false);
   const [isLoading, setIsLoading]: [boolean, Function]  = useState(false);
+  const [pageSize, setPageSize]: [number, Function]  = useState(20);
 
   useEffect(()=>{
     setIsLoading(true);
-    request(process.env.REACT_APP_HEADLINES_ENDPOINT!)
+    request(moreRecent, searchValue, pageSize)
     .then((articles:Articles) => setNewspapers(
       articles.articles
       .map(article => article.source.name)
@@ -28,14 +29,15 @@ function App() {
     )
     .then(() => setIsLoading(false))
     .catch(() => setIsLoading(false));
-  },[])
+  },[searchValue, moreRecent, pageSize])
 
   const changeValue = (event: string) => {
     setSearchValue(event);
   }
 
   const changeMoreRecentValue = () => {
-    setMoreRecent(!moreRecent)
+    setMoreRecent(!moreRecent);
+    setPageSize(20);
   }
 
   const changeSelectednewspapers = (value: string) => {
@@ -45,8 +47,7 @@ function App() {
   }
 
   const showMore = () => {
-    console.log('more');
-    
+    setPageSize(pageSize+20);
   }
 
   return (
@@ -57,17 +58,14 @@ function App() {
           <SearchField searchValue={searchValue} setSearchValue={changeValue}/>
         </div>
         <div className="col-4">
-          <ToggleSwitch changeMoreRecentValue={changeMoreRecentValue}/>
+          <ToggleSwitch searchValue={searchValue} changeMoreRecentValue={changeMoreRecentValue}/>
         </div>
         <div className="col-8">
           <Newspapers newspapers={newspapers} selectedNewspapers={selectedNewspapers} setSelectedNewspapers={changeSelectednewspapers}/>
         </div>
-        {
-        moreRecent && 
           <div className="col-8">
             <ShowMore showMore={showMore} />
           </div>
-        }
       </div>
     </div>
     {isLoading && <Loader />}

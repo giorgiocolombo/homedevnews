@@ -1,4 +1,14 @@
 /* The switch - the box around the slider */
+.toggle-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-wrapper.disabled{
+    opacity: 0.5;
+}
+
 .switch {
     position: relative;
     display: inline-block;

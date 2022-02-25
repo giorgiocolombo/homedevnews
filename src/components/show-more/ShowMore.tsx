@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { MouseEventHandler } from "react";
+import './ShowMore.css'
 
 interface propsType {
     showMore: MouseEventHandler<HTMLButtonElement>;
@@ -9,9 +10,7 @@ export function ShowMore(props: propsType) {
     const { showMore } = props;
 
     return (
-        <div className="newspaper">
-            <button type="button" onClick={showMore}>Mostra altri</button>
-        </div>
+            <button className="show-more__btn" type="button" onClick={showMore}>Mostra altri</button>
     )
 }
 
