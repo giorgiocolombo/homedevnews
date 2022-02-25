@@ -10,7 +10,7 @@ export function ToggleSwitch(props: PropsType) {
     const { changeMoreRecentValue, searchValue } = props;
 
     return (
-        <div className={`toggle-wrapper  ${!searchValue ? 'disabled' : ''}`} title={!searchValue ? 'Ricerca un valore' : ''}>
+        <div className={`toggle-wrapper  ${!searchValue ? 'disabled' : ''}`} title={!searchValue ? 'Ricerca un argomento per usare la funzione' : ''}>
             <small className="p-0 m-0 mr-3"><i>I più letti</i></small>
             <label className="switch">
                 <input type="checkbox" onChange={changeMoreRecentValue} disabled={!searchValue} />

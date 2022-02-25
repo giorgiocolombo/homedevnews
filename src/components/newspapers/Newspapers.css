@@ -1,11 +1,14 @@
 .newspaper{
     max-width: 400px;
-    background-color: #17181a;
     padding: 2rem 1rem 3rem;
     border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    box-shadow: 5px 5px 5px #151518, -4px -4px 5px #35363a;
+    max-height: 80vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .newspaper *{
@@ -25,18 +28,20 @@
     overflow: hidden;
     text-overflow: ellipsis;
     border-image-slice: 1;
-    border-image-source: linear-gradient(to left, rgba(92, 55, 242, 1) 0%, rgba(234, 52, 52, 1) 100% );
-    background: linear-gradient(to left, rgba(92,55,242,1) 0%, rgba(234,52,52,1) 100%);
+    border-image-source: linear-gradient(to left, rgb(149, 127, 236) 0%, rgba(234, 52, 52, 1) 100% );
+    background: linear-gradient(to left, rgb(149, 127, 236) 0%, rgba(234,52,52,1) 100%);
     color: #ddd;
     text-shadow: 1px 1px 20px #000;
 }
 
 .newspaper__btn:hover {
     color: #ddd;
+    border-image-source: linear-gradient(to right, rgb(149, 127, 236) 0%, rgba(234, 52, 52, 1) 100% );
+    background: linear-gradient(to right, rgb(149, 127, 236) 0%, rgba(234,52,52,1) 100%);
 }
 
 .newspaper__btn:not(.newspaper__btn--selected) {
-    background-clip: linear-gradient(to left, rgba(92,55,242,1) 0%, rgba(234,52,52,1) 100%);
+    background-clip: linear-gradient(to left, rgb(149, 127, 236) 0%, rgba(234,52,52,1) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

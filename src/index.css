@@ -14,8 +14,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, label, i, b, small {
-  background: -webkit-linear-gradient(10deg, rgba(92,55,242,1) 0%, rgba(234,52,52,1) 100%);
-  background-clip: -webkit-linear-gradient(10deg, rgba(92,55,242,1) 0%, rgba(234,52,52,1) 100%);
+  background: -webkit-linear-gradient(10deg, rgb(149, 127, 236) 0%, rgba(234,52,52,1) 100%);
+  background-clip: -webkit-linear-gradient(10deg, rgb(149, 127, 236) 0%, rgba(234,52,52,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

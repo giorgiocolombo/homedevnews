@@ -1,0 +1,6 @@
+.newselement{
+    box-shadow: inset 5px 5px 0px #151518, inset -4px -4px 0px #35363a;
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    color: #ddd;
+}

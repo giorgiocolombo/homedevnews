@@ -2,11 +2,12 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import './App.css';
 import { Loader } from './components/loader/Loader';
+import { NewsList } from './components/news-list/NewsList';
 import { Newspapers } from './components/newspapers/Newspapers';
 import { SearchField } from './components/search-field/SearchField';
 import { ShowMore } from './components/show-more/ShowMore';
 import { ToggleSwitch } from './components/toggle-switch/ToggleSwitch';
-import { Articles } from './interfaces/articles.interface';
+import { Article, Articles } from './interfaces/articles.interface';
 import { request } from './services/request';
 
 function App() {
@@ -16,18 +17,23 @@ function App() {
   const [moreRecent, setMoreRecent]: [boolean, Function]  = useState(false);
   const [isLoading, setIsLoading]: [boolean, Function]  = useState(false);
   const [pageSize, setPageSize]: [number, Function]  = useState(20);
+  const [articles, setArticles]: [Article[], Function] = useState([]);
 
   useEffect(()=>{
     setIsLoading(true);
     request(moreRecent, searchValue, pageSize)
-    .then((articles:Articles) => setNewspapers(
-      articles.articles
-      .map(article => article.source.name)
-      .sort()
-      .filter((value, pos, ary) => !!value && (!pos || value !== ary[pos - 1]))
+    .then((articles:Articles) => {
+      setNewspapers(
+        articles.articles
+        .map(article => article.source.name)
+        .sort()
+        .filter((value, pos, ary) => !!value && (!pos || value !== ary[pos - 1]))
       )
+      setArticles(articles.articles);
+      setSelectedNewspapers([]);
+      setIsLoading(false)
+      }
     )
-    .then(() => setIsLoading(false))
     .catch(() => setIsLoading(false));
   },[searchValue, moreRecent, pageSize])
 
@@ -54,18 +60,26 @@ function App() {
     <React.Fragment>
       <div className="container">
       <div className="row mt-3">
-        <div className="col-4">
+        <div className="col-7 col-lg-8">
           <SearchField searchValue={searchValue} setSearchValue={changeValue}/>
         </div>
-        <div className="col-4">
+        <div className="col-5 col-lg-4 mt-2">
           <ToggleSwitch searchValue={searchValue} changeMoreRecentValue={changeMoreRecentValue}/>
         </div>
-        <div className="col-8">
+      </div>
+      <div className="row mt-3">
+          <div className="col-7 col-lg-8">
+            <NewsList articles={articles} selectedNewspapers={selectedNewspapers} />
+          {
+            pageSize < 100 && articles.length && 
+            <div className="col-12 d-flex justify-content-center mt-4 mb-5">
+              <ShowMore showMore={showMore} />
+            </div>
+          }
+          </div>
+        <div className="col-5 col-lg-4">
           <Newspapers newspapers={newspapers} selectedNewspapers={selectedNewspapers} setSelectedNewspapers={changeSelectednewspapers}/>
         </div>
-          <div className="col-8">
-            <ShowMore showMore={showMore} />
-          </div>
       </div>
     </div>
     {isLoading && <Loader />}

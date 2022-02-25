@@ -1,8 +1,9 @@
 .search{
     background: #2B2C2F;
     border-image-slice: 1;
-    border-image-source: linear-gradient(to left, rgba(92, 55, 242, 1) 0%, rgba(234, 52, 52, 1) 100% );
+    border-image-source: linear-gradient(to left, rgb(149, 127, 236) 0%, rgba(234, 52, 52, 1) 100% );
     border-radius: 5px;
+    color: #bbb;
 }
 
 .search:focus{
@@ -11,7 +12,7 @@
 }
 
 .search-button{
-    background: linear-gradient( to left, rgba(92, 55, 242, 1) 0%, rgba(234, 52, 52, 1) 100% );
+    background: linear-gradient( to left, rgb(149, 127, 236) 0%, rgba(234, 52, 52, 1) 100% );
     color: #2B2C2F;
     font-weight: 700;
     text-shadow: 1px 1px 50px #000;
