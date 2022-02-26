@@ -27,7 +27,7 @@ export function NewsList(props: propsType) {
             {
                 filteredArticles.length
                 ? <div className="newslist">{filteredArticles.map((article, i) => <NewsElement key={i} article={article} />)}</div>
-                : <h2><i>Nessun articolo trovato</i></h2>
+                : <h3><i>Nessun articolo trovato</i></h3>
             }
         </React.Fragment>
     )

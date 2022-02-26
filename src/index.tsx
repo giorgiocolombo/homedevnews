@@ -3,10 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  BrowserRouter as Router, 
+  Routes,
+  Route
+} from "react-router-dom";
+import { Sources } from './routes/Sources/Sources';
+import { SourceDetail } from './routes/SourceDetail/SourceDetail';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/sources" element={<Sources />} />
+        <Route path="/sources/:id" element={<SourceDetail />} />
+        <Route path="*" element={<h2 className='p-3'>Pagina non trovata</h2>} />
+      </Routes>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -5,7 +5,7 @@ import { Loader } from './components/loader/Loader';
 import { NewsList } from './components/news-list/NewsList';
 import { Newspapers } from './components/newspapers/Newspapers';
 import { SearchField } from './components/search-field/SearchField';
-import { ShowMore } from './components/show-more/ShowMore';
+import { Button } from './components/button/Button';
 import { ToggleSwitch } from './components/toggle-switch/ToggleSwitch';
 import { Article, Articles } from './interfaces/articles.interface';
 import { request } from './services/request';
@@ -59,30 +59,33 @@ function App() {
   return (
     <React.Fragment>
       <div className="container">
-      <div className="row mt-3">
-        <div className="col-7 col-lg-8">
-          <SearchField searchValue={searchValue} setSearchValue={changeValue}/>
+        <div className="row">
+          <h1 className="col-12 mt-4 mb-2 d-flex justify-content-center">HomeDevNews</h1>
         </div>
-        <div className="col-5 col-lg-4 mt-2">
-          <ToggleSwitch searchValue={searchValue} changeMoreRecentValue={changeMoreRecentValue}/>
-        </div>
-      </div>
-      <div className="row mt-3">
+        <div className="row mt-3">
           <div className="col-7 col-lg-8">
-            <NewsList articles={articles} selectedNewspapers={selectedNewspapers} />
-          {
-            pageSize < 100 && articles.length && 
-            <div className="col-12 d-flex justify-content-center mt-4 mb-5">
-              <ShowMore showMore={showMore} />
-            </div>
-          }
+            <SearchField searchValue={searchValue} setSearchValue={changeValue}/>
           </div>
-        <div className="col-5 col-lg-4">
-          <Newspapers newspapers={newspapers} selectedNewspapers={selectedNewspapers} setSelectedNewspapers={changeSelectednewspapers}/>
+          <div className="col-5 col-lg-4 mt-2">
+            <ToggleSwitch searchValue={searchValue} changeMoreRecentValue={changeMoreRecentValue}/>
+          </div>
+        </div>
+        <div className="row mt-3">
+            <div className="col-7 col-lg-8">
+              <NewsList articles={articles} selectedNewspapers={selectedNewspapers} />
+            {
+              pageSize < 100 && !!articles.length && 
+              <div className="col-12 d-flex justify-content-center mt-4 mb-5">
+                <Button inputFunc={showMore}>Mostra altri</Button>
+              </div>
+            }
+            </div>
+          <div className="col-5 col-lg-4">
+            <Newspapers newspapers={newspapers} selectedNewspapers={selectedNewspapers} setSelectedNewspapers={changeSelectednewspapers}/>
+          </div>
         </div>
       </div>
-    </div>
-    {isLoading && <Loader />}
+      {isLoading && <Loader />}
     </React.Fragment>
   );
 }

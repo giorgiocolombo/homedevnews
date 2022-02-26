@@ -13,9 +13,25 @@ body {
   font-weight: 700;
 }
 
-h1, h2, h3, h4, h5, h6, label, i, b, small {
+h1, h2, h3, h4, h5, h6, label, i, b, small, a {
   background: -webkit-linear-gradient(10deg, rgb(149, 127, 236) 0%, rgba(234,52,52,1) 100%);
   background-clip: -webkit-linear-gradient(10deg, rgb(149, 127, 236) 0%, rgba(234,52,52,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+a{
+  border-bottom: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left, rgb(149, 127, 236) 0%, rgba(234, 52, 52, 1) 100% );
+}
+
+a:hover{
+  border-bottom: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, rgb(149, 127, 236) 0%, rgba(234, 52, 52, 1) 100% );
+  background: -webkit-linear-gradient(10deg, rgba(234,52,52,1) 0%,rgb(149, 127, 236)  100%);
+  background-clip: -webkit-linear-gradient(10deg, rgba(234,52,52,1) 0%,rgb(149, 127, 236)  100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

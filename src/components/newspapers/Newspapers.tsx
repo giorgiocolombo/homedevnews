@@ -1,6 +1,7 @@
-import PropTypes, { string } from "prop-types";
+import PropTypes from "prop-types";
 import './Newspapers.css'
-
+import { Link } from "react-router-dom";
+  
 interface propsType {
     newspapers: string[];
     selectedNewspapers: string[];
@@ -15,16 +16,17 @@ export function Newspapers(props: propsType) {
 
     return (
         <div className="newspaper">
-            <small><i>filtra editori della ricerca corrente:</i></small>
+            { !!newspapers.length && <small><i>filtra editori della ricerca corrente:</i></small>}
            {newspapers.map((newspaper: string, i: number) => (
                 <button key={i} type="button" className={`newspaper__btn btn mt-2 ${isSelected(newspaper) ? 'newspaper__btn--selected' : ''}`} onClick={() => selectNewspaper(newspaper)}>{newspaper}</button>
            ))}
+           <Link to="/sources">Mostra tutti gli editori</Link>
         </div>
     )
 }
 
 Newspapers.prototype = {
-    newspapers: PropTypes.arrayOf(string).isRequired,
-    selectedNewspapers: PropTypes.arrayOf(string).isRequired,
+    newspapers: PropTypes.arrayOf(PropTypes.string).isRequired,
+    selectedNewspapers: PropTypes.arrayOf(PropTypes.string).isRequired,
     setSelectedNewspapers: PropTypes.func.isRequired,
 }
