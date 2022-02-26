@@ -38,7 +38,7 @@ export function SourceDetail() {
                     <Link to="/">Torna alla homepage</Link>
                 </div>
                 <div className="row">
-                    <h1 className="col-12 mt-4 mb-5">{articles[0].source.name}</h1>
+                    <h1 className="col-12 mt-4 mb-5">{articles[0]?.source.name}</h1>
                 </div>
                 <div className="row mt-3">
                     <div className="col-12">
