@@ -35,3 +35,27 @@ a:hover{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #00000000; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: -webkit-linear-gradient(10deg, rgba(234,52,52,1) 0%,rgb(149, 127, 236)  100%);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: -webkit-linear-gradient(10deg, rgb(149, 127, 236) 0%,rgba(234,52,52,1)  100%);
+}
+
+.sticky-top{
+  top: 1.5rem;
+}

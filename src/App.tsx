@@ -81,7 +81,9 @@ function App() {
             }
             </div>
           <div className="col-5 col-lg-4">
-            <Newspapers newspapers={newspapers} selectedNewspapers={selectedNewspapers} setSelectedNewspapers={changeSelectednewspapers}/>
+            <div className="sticky-top">
+              <Newspapers newspapers={newspapers} selectedNewspapers={selectedNewspapers} setSelectedNewspapers={changeSelectednewspapers}/>
+            </div>
           </div>
         </div>
       </div>
