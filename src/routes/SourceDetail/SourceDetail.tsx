@@ -41,7 +41,7 @@ export function SourceDetail() {
                     <h1 className="col-12 mt-4 mb-5">{articles[0].source.name}</h1>
                 </div>
                 <div className="row mt-3">
-                    <div className="col-7 col-lg-8">
+                    <div className="col-12">
                         <NewsList articles={articles} selectedNewspapers={[]} />
                     {
                         pageSize < 100 && !!articles.length && 

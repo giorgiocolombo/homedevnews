@@ -4,7 +4,7 @@ export function sourceRequest(id?: string, pageSize?: number){
     const API_KEY = process.env.REACT_APP_API_KEY;
     const headers = new Headers();
     const url = new URL(`${BASE_URL}/${endpoint}&apiKey=${API_KEY}`);
-    id && url.searchParams.append('source', id);
+    id && url.searchParams.append('sources', id);
     pageSize && url.searchParams.append('pageSize', String(pageSize));
 
     return fetch(String(url), {headers})
