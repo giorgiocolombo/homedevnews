@@ -1,20 +1,11 @@
-.newselement{
+.sourceElement{
     box-shadow: inset 5px 5px 0px #151518, inset -4px -4px 0px #35363a;
     padding: 1rem 1rem 2rem;
     border-radius: 10px;
     color: #ddd;
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    flex-direction: column;
-}
-
-.newselement img{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px #151518, -4px -4px 5px #35363a;
-    margin-bottom: 1rem;
 }

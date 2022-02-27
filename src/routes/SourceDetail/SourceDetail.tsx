@@ -35,7 +35,7 @@ export function SourceDetail() {
         <React.Fragment>
             <div className="container">
                 <div className="mt-3">
-                    <Link to="/">Torna alla homepage</Link>
+                    <Link to="/sources">Torna alla lista degli editori</Link>
                 </div>
                 <div className="row">
                     <h1 className="col-12 mt-4 mb-5">{articles[0]?.source.name}</h1>

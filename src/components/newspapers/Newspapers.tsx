@@ -16,11 +16,11 @@ export function Newspapers(props: propsType) {
 
     return (
         <div className="newspaper">
-            { !!newspapers.length && <small><i>filtra editori della ricerca corrente:</i></small>}
+            <Link to="/sources" className="mb-4">Mostra editori più letti</Link>
+            { !!newspapers.length && <small className="mb-0"><i>Filtra editori della ricerca corrente:</i></small>}
            {newspapers.map((newspaper: string, i: number) => (
                 <button key={i} type="button" className={`newspaper__btn btn mt-2 ${isSelected(newspaper) ? 'newspaper__btn--selected' : ''}`} onClick={() => selectNewspaper(newspaper)}>{newspaper}</button>
            ))}
-           <Link to="/sources">Mostra tutti gli editori</Link>
         </div>
     )
 }

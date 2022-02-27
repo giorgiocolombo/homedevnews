@@ -1,11 +1,11 @@
-.newslist{
+.sourceList{
     display: grid;
     gap: 1.5rem;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 }
 
 @media screen and (max-width: 400px){
-    .newslist{
+    .sourceList{
         grid-template-columns: 1fr;
     }
 }

@@ -8,8 +8,21 @@ interface propsType {
 export function NewsElement(props: propsType) {
     const { article } = props;
 
+    const convertIsoString = (date: string) => new Date(date).toLocaleDateString('it', { year: 'numeric', month: 'long', day: 'numeric'});
+
     return (
-        <div className="newselement">{article.title}</div>
+        <div className="newselement">
+            <div className="w-100">
+                {article.urlToImage && <img src={article.urlToImage} alt="" />}
+                <h3 className="newselement__title">{article.title}</h3>
+                <div className="d-flex align-items-center justify-content-between py-2">
+                    <h6>{article.source.name}</h6>
+                    <div className="mb-3 ml-2"><small>{convertIsoString(article.publishedAt)}</small></div>
+                </div>
+                <p className="mb-4 pt-1">{article.description}</p>
+            </div>
+            <div className="d-flex justify-content-center w-100"><a href={article.url} target="_blank" rel="noreferrer">Vai all'articolo</a></div>
+        </div>
     )
 }
 

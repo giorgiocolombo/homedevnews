@@ -63,15 +63,20 @@ function App() {
           <h1 className="col-12 mt-4 mb-2 d-flex justify-content-center">HomeDevNews</h1>
         </div>
         <div className="row mt-3">
-          <div className="col-7 col-lg-8">
+          <div className="col-12 col-md-7 col-lg-8">
             <SearchField searchValue={searchValue} setSearchValue={changeValue}/>
           </div>
-          <div className="col-5 col-lg-4 mt-2">
+          <div className="col-12 col-md-5 col-lg-4 mt-2">
             <ToggleSwitch searchValue={searchValue} changeMoreRecentValue={changeMoreRecentValue}/>
           </div>
         </div>
         <div className="row mt-3">
-            <div className="col-7 col-lg-8">
+          <div className="col-12 col-md-5 col-lg-4 order-1 order-md-2 mb-4 mb-md-0">
+            <div className="sticky-top">
+              <Newspapers newspapers={newspapers} selectedNewspapers={selectedNewspapers} setSelectedNewspapers={changeSelectednewspapers}/>
+            </div>
+          </div>
+            <div className="col-12 col-md-7 col-lg-8 order-2 order-md-1">
               <NewsList articles={articles} selectedNewspapers={selectedNewspapers} />
             {
               pageSize < 100 && !!articles.length && 
@@ -80,11 +85,6 @@ function App() {
               </div>
             }
             </div>
-          <div className="col-5 col-lg-4">
-            <div className="sticky-top">
-              <Newspapers newspapers={newspapers} selectedNewspapers={selectedNewspapers} setSelectedNewspapers={changeSelectednewspapers}/>
-            </div>
-          </div>
         </div>
       </div>
       {isLoading && <Loader />}

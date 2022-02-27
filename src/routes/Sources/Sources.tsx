@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Loader } from "../../components/loader/Loader";
 import { Source, SourcesInterface } from "../../interfaces/sources.interface";
 import { sourceRequest } from "../../services/source-request";
+import { SourceElement } from "./sourceElement/SourceElement";
+import './Sources.css'
 
 export function Sources() {
     const [ sourceList, setSourceList ] : [ Source[], Function ] = useState([]);
@@ -24,9 +26,9 @@ export function Sources() {
                 <Link to="/">Torna alla homepage</Link>
             </div>
             <div className="row">
-                <h1 className="col-12 mt-4 mb-5">Tutti gli editori</h1>
+                <h1 className="col-12 mt-4 mb-5">Editori più letti</h1>
             </div>
-            <div>Sorces</div>
+            <div className="sourceList">{sourceList.map((source, i) => <SourceElement source={source} key={i} />)}</div>
             {isLoading && <Loader />}
         </div>
     )
