@@ -28,7 +28,7 @@ export function Sources() {
             <div className="row">
                 <h1 className="col-12 mt-4 mb-5">Editori più letti</h1>
             </div>
-            <div className="sourceList">{sourceList.map((source, i) => <SourceElement source={source} key={i} />)}</div>
+            <div className="sourceList pb-5">{sourceList.map((source, i) => <SourceElement source={source} key={i} />)}</div>
             {isLoading && <Loader />}
         </div>
     )
