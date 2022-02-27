@@ -13,7 +13,7 @@ import { SourceDetail } from './routes/SourceDetail/SourceDetail';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router basename={'/homedevnews'}>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/sources" element={<Sources />} />
